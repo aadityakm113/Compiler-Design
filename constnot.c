@@ -48,11 +48,11 @@ int main(){
     }
     printf("%s ",str);
     if(state==1)
-        printf("is an Integer Constant");
+        printf("is a Constant");
     else if (state==2)
-        printf("is an Integer constant");
+        printf("is a constant");
     else if(state==4)
-        printf("is a Real Constant");
+        printf("is a Constant");
     else
-        printf("is Invalid");
+        printf("is not a Constant");
 }
