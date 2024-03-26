@@ -1307,9 +1307,54 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-      
+        case 2:
+#line 11 "expr.y"
+    { printf("(%d + %d)", (yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); ;}
+    break;
+
+  case 3:
+#line 12 "expr.y"
+    { printf("(%d - %d)", (yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); ;}
+    break;
+
+  case 4:
+#line 13 "expr.y"
+    { printf("(%d * %d)", (yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); ;}
+    break;
+
+  case 5:
+#line 14 "expr.y"
+    { printf("(%d / %d)", (yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); ;}
+    break;
+
+  case 6:
+#line 15 "expr.y"
+    { printf("(-%d)", (yyvsp[(2) - (2)])); ;}
+    break;
+
+  case 7:
+#line 16 "expr.y"
+    { printf("(-%s)", yytext); ;}
+    break;
+
+  case 8:
+#line 17 "expr.y"
+    { printf("(%d)", (yyvsp[(2) - (3)])); ;}
+    break;
+
+  case 9:
+#line 18 "expr.y"
+    { printf("%d", (yyvsp[(1) - (1)])); ;}
+    break;
+
+  case 10:
+#line 19 "expr.y"
+    { printf("%s", yytext); ;}
+    break;
+
+
 /* Line 1267 of yacc.c.  */
-#line 1313 "expr.tab.c"
+#line 1358 "expr.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1523,18 +1568,20 @@ yyreturn:
 }
 
 
-#line 21 "expr.y"
+#line 22 "expr.y"
 
 
-main()
+int main()
 {
-printf("Enter the expression\n");
-yyparse();
-printf("\nExpression is valid\n");
-exit(0);
+    printf("Enter the expression:\n");
+    yyparse();
+    printf("\nExpression is valid\n");
+    return 0;
 }
+
 int yyerror(char *s)
 {
-printf("\nexpression is invalid");
-exit(0);
+    printf("\nExpression is invalid\n");
+    exit(0);
 }
+

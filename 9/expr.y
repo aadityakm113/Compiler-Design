@@ -8,27 +8,29 @@
 %left '*' '/'
 %%
 
-expr: expr '+' expr
-	|expr '-' expr
-	|expr '*' expr
-	|expr '/' expr
-	|'-'NUMBER
-	|'-'ID
-	|'('expr')'
-	|NUMBER
-	|ID
+expr: expr '+' expr  { printf("(%d + %d)", $1, $3); }
+	| expr '-' expr  { printf("(%d - %d)", $1, $3); }
+	| expr '*' expr  { printf("(%d * %d)", $1, $3); }
+	| expr '/' expr  { printf("(%d / %d)", $1, $3); }
+	| '-' NUMBER     { printf("(-%d)", $2); }
+	| '-' ID         { printf("(-%s)", yytext); }
+	| '(' expr ')'   { printf("(%d)", $2); }
+	| NUMBER         { printf("%d", $1); }
+	| ID             { printf("%s", yytext); }
 	;
+
 %%
 
-main()
+int main()
 {
-printf("Enter the expression\n");
-yyparse();
-printf("\nExpression is valid\n");
-exit(0);
+    printf("Enter the expression:\n");
+    yyparse();
+    printf("\nExpression is valid\n");
+    return 0;
 }
+
 int yyerror(char *s)
 {
-printf("\nexpression is invalid");
-exit(0);
+    printf("\nExpression is invalid\n");
+    exit(0);
 }

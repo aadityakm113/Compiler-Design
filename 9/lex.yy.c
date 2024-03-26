@@ -445,8 +445,8 @@ char *yytext;
 #line 1 "9.l"
 #line 2 "9.l"
 #include "expr.tab.h"
-#include "stdlib.h"
-extern yylval;
+#include <stdlib.h>
+extern int yylval; // Corrected the declaration of yylval
 #line 450 "lex.yy.c"
 #line 451 "lex.yy.c"
 
@@ -727,28 +727,28 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 8 "9.l"
-{yylval=atoi(yytext); return NUMBER;}
+{ yylval = atoi(yytext); return NUMBER; } // Match numbers and return the NUMBER token
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 9 "9.l"
-{return ID;}
+{ return ID; } // Match letters and return the ID token
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 10 "9.l"
-;
+; // Ignore tabs
 	YY_BREAK
 case 4:
 /* rule 4 can match eol */
 YY_RULE_SETUP
 #line 11 "9.l"
-{return 0;}
+{ return 0; } // Return 0 for end of input
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 12 "9.l"
-{return yytext[0];}
+{ return yytext[0]; } // Return any other character
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
@@ -1763,8 +1763,7 @@ void yyfree (void * ptr )
 #line 13 "9.l"
 
 
-int yywrap()
-{
+int yywrap() {
     return 1;
 }
 
