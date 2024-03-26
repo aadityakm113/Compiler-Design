@@ -363,7 +363,7 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[13] =
     {   0,
-        0,    0,    7,    5,    3,    4,    1,    2,    3,    1,
+        0,    0,    7,    5,    3,    4,    1,    5,    3,    1,
         2,    0
     } ;
 
@@ -378,11 +378,11 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    5,    5,    5,    5,    5,    5,
         5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
         5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
-        1,    1,    1,    1,    1,    1,    5,    5,    5,    5,
+        1,    1,    1,    1,    1,    1,    6,    6,    6,    6,
 
-        5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
-        5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
-        5,    5,    1,    1,    1,    1,    1,    1,    1,    1,
+        6,    6,    6,    6,    6,    6,    6,    6,    6,    6,
+        6,    6,    6,    6,    6,    6,    6,    6,    6,    6,
+        6,    6,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -399,15 +399,15 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[6] =
+static const YY_CHAR yy_meta[7] =
     {   0,
-        1,    2,    1,    3,    4
+        1,    2,    1,    3,    4,    1
     } ;
 
 static const flex_int16_t yy_base[16] =
     {   0,
-        0,    0,    9,   10,    0,   10,    0,    0,    0,    0,
-        0,   10,    6,    4,    2
+        0,    0,   10,   11,    0,   11,    0,    0,    0,    0,
+        0,   11,    7,    5,    3
     } ;
 
 static const flex_int16_t yy_def[16] =
@@ -416,16 +416,16 @@ static const flex_int16_t yy_def[16] =
        15,    0,   12,   12,   12
     } ;
 
-static const flex_int16_t yy_nxt[16] =
+static const flex_int16_t yy_nxt[18] =
     {   0,
-        4,    5,    6,    7,    8,   11,   10,    9,   12,    3,
-       12,   12,   12,   12,   12
+        4,    5,    6,    7,    4,    8,   11,   10,    9,   12,
+        3,   12,   12,   12,   12,   12,   12
     } ;
 
-static const flex_int16_t yy_chk[16] =
+static const flex_int16_t yy_chk[18] =
     {   0,
-        1,    1,    1,    1,    1,   15,   14,   13,    3,   12,
-       12,   12,   12,   12,   12
+        1,    1,    1,    1,    1,    1,   15,   14,   13,    3,
+       12,   12,   12,   12,   12,   12,   12
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -445,8 +445,8 @@ char *yytext;
 #line 1 "9.l"
 #line 2 "9.l"
 #include "expr.tab.h"
-#include <stdlib.h>
-extern int yylval; // Corrected the declaration of yylval
+#include "stdlib.h"
+extern yylval;
 #line 450 "lex.yy.c"
 #line 451 "lex.yy.c"
 
@@ -700,7 +700,7 @@ yy_match:
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 10 );
+		while ( yy_base[yy_current_state] != 11 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -727,28 +727,28 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 8 "9.l"
-{ yylval = atoi(yytext); return NUMBER; } // Match numbers and return the NUMBER token
+{yylval=atoi(yytext); return NUMBER;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 9 "9.l"
-{ return ID; } // Match letters and return the ID token
+{return ID;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 10 "9.l"
-; // Ignore tabs
+;
 	YY_BREAK
 case 4:
 /* rule 4 can match eol */
 YY_RULE_SETUP
 #line 11 "9.l"
-{ return 0; } // Return 0 for end of input
+{return 0;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 12 "9.l"
-{ return yytext[0]; } // Return any other character
+{return yytext[0];}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
@@ -1763,7 +1763,6 @@ void yyfree (void * ptr )
 #line 13 "9.l"
 
 
-int yywrap() {
-    return 1;
+int yywrap(){
+return 1;
 }
-

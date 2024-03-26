@@ -1,4 +1,4 @@
 bison-d test.y
-flex test.l
-gcc lex.yy.c
+flex <filename>.l //lex.<filename>.l in ubuntu
+gcc lex.yy.c <filename>.tab.c
 ./a.out

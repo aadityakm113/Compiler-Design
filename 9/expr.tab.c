@@ -80,8 +80,7 @@
 /* Copy the first part of user declarations.  */
 #line 1 "expr.y"
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
 
 
 /* Enabling traces.  */
@@ -115,7 +114,7 @@ typedef int YYSTYPE;
 
 
 /* Line 216 of yacc.c.  */
-#line 119 "expr.tab.c"
+#line 118 "expr.tab.c"
 
 #ifdef short
 # undef short
@@ -391,8 +390,8 @@ static const yytype_uint8 yyprhs[] =
 /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
 static const yytype_int8 yyrhs[] =
 {
-      12,     0,    -1,    12,     5,    12,    -1,    12,     6,    12,
-      -1,    12,     7,    12,    -1,    12,     8,    12,    -1,     6,
+      12,     0,    -1,    12,     5,    12,    -1,    12,     7,    12,
+      -1,    12,     6,    12,    -1,    12,     8,    12,    -1,     6,
        3,    -1,     6,     4,    -1,     9,    12,    10,    -1,     3,
       -1,     4,    -1
 };
@@ -400,8 +399,8 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    11,    11,    12,    13,    14,    15,    16,    17,    18,
-      19
+       0,    10,    10,    11,    12,    13,    14,    15,    16,    17,
+      18
 };
 #endif
 
@@ -445,7 +444,7 @@ static const yytype_uint8 yyr2[] =
 static const yytype_uint8 yydefact[] =
 {
        0,     9,    10,     0,     0,     0,     6,     7,     0,     1,
-       0,     0,     0,     0,     8,     2,     3,     4,     5
+       0,     0,     0,     0,     8,     2,     4,     3,     5
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
@@ -1307,54 +1306,9 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-        case 2:
-#line 11 "expr.y"
-    { printf("(%d + %d)", (yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); ;}
-    break;
-
-  case 3:
-#line 12 "expr.y"
-    { printf("(%d - %d)", (yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); ;}
-    break;
-
-  case 4:
-#line 13 "expr.y"
-    { printf("(%d * %d)", (yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); ;}
-    break;
-
-  case 5:
-#line 14 "expr.y"
-    { printf("(%d / %d)", (yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); ;}
-    break;
-
-  case 6:
-#line 15 "expr.y"
-    { printf("(-%d)", (yyvsp[(2) - (2)])); ;}
-    break;
-
-  case 7:
-#line 16 "expr.y"
-    { printf("(-%s)", yytext); ;}
-    break;
-
-  case 8:
-#line 17 "expr.y"
-    { printf("(%d)", (yyvsp[(2) - (3)])); ;}
-    break;
-
-  case 9:
-#line 18 "expr.y"
-    { printf("%d", (yyvsp[(1) - (1)])); ;}
-    break;
-
-  case 10:
-#line 19 "expr.y"
-    { printf("%s", yytext); ;}
-    break;
-
-
+      
 /* Line 1267 of yacc.c.  */
-#line 1358 "expr.tab.c"
+#line 1312 "expr.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1568,20 +1522,19 @@ yyreturn:
 }
 
 
-#line 22 "expr.y"
+#line 20 "expr.y"
 
 
-int main()
+main()
 {
-    printf("Enter the expression:\n");
-    yyparse();
-    printf("\nExpression is valid\n");
-    return 0;
+printf("Enter the epression");
+yyparse();
+printf("\nExpression is valid");
+exit(0);
 }
 
 int yyerror(char *s)
 {
-    printf("\nExpression is invalid\n");
-    exit(0);
+printf("\n Expression is invalid");
+exit(0);
 }
-

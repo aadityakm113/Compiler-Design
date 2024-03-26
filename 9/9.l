@@ -1,17 +1,17 @@
 %{
 #include "expr.tab.h"
-#include <stdlib.h>
-extern int yylval; // Corrected the declaration of yylval
+#include "stdlib.h"
+extern yylval;
 %}
 
 %%
-[0-9]+      { yylval = atoi(yytext); return NUMBER; } // Match numbers and return the NUMBER token
-[a-zA-Z]+   { return ID; } // Match letters and return the ID token
-[\t]+       ; // Ignore tabs
-\n          { return 0; } // Return 0 for end of input
-.           { return yytext[0]; } // Return any other character
+[0-9]+ {yylval=atoi(yytext); return NUMBER;}
+[a-z][A-Z]+ {return ID;}
+[\t]+ ;
+\n {return 0;}
+. {return yytext[0];}
 %%
 
-int yywrap() {
-    return 1;
+int yywrap(){
+return 1;
 }
