@@ -1582,4 +1582,3 @@ void yyerror(const char *s) {
     printf("\nExpression is invalid\n");
     exit(1);
 }
-
